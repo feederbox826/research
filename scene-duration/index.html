@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>Stash</div>
+    <input type="text" id="stash-url" size="50" value="http://localhost:9999/graphql" />
+    <input type="text" id="apikey" size="20" placeholder = "eyJh" />
+    <button id="load-button" onclick="queryStash()">Load Data</button>
+    <div>Chart: <canvas id="chart"></canvas></div>
+    <pre>
+      Stats:
+      <span id="total"></span>
+      <span id="mean"></span>
+      <span id="median"></span>
+      <span id="stddev"></span>
+      <span id="percentile90+"></span>
+      <span id="min"></span>
+      <span id="max"></span>
+    </pre>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+    <script src="chart.js"></script>
+    <script src="query.js"></script>
+  </body>
+</html>

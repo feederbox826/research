@@ -51,11 +51,14 @@ async function queryStash() {
   document.getElementById("mean").innerText = `Mean Duration: ${Math.floor(mean)} seconds`
   document.getElementById("median").innerText = `Median Duration: ${Math.floor(median)} seconds`
   document.getElementById("stddev").innerText = `Standard Deviation: +-${Math.floor(sd)} seconds`
-  document.getElementById("min").innerText = `Min Duration: ${Math.min(...durations)} seconds (${buckets[Object.keys(buckets)[0]]} scenes)`
+  const minBucket = Object.keys(buckets)[0]
+  const minDuration = sorted[0]
+  document.getElementById("min").innerText = `Min Duration: ${minDuration} seconds (${minBucket} scenes)`
   document.getElementById("percentile90").innerText = `90th Percentile: ${percentile90} seconds`
   // bucket key for max
+  const maxDuration = sorted[sorted.length - 1]
   const bucketMax = Object.keys(buckets)[Object.keys(buckets).length - 1]
-  document.getElementById("max").innerText = `Max Duration: ${Math.max(...durations)} seconds (${buckets[bucketMax]} scenes)`
+  document.getElementById("max").innerText = `Max Duration: ${maxDuration} seconds (${buckets[bucketMax]} scenes)`
   document.getElementById("total").innerText = `Total Scenes: ${durations.length}`
   createChart(buckets)
 }
